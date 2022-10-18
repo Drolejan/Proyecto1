@@ -24,7 +24,7 @@ public class movePlataforma : MonoBehaviour
         //Opcion 2
         posX += 0.001f;
         //Actualizamos la posición cada frame
-        transform.position = new Vector2(posX, transform.position.y);
+        transform.position = new Vector2(posX , transform.position.y);
         if (posX > 12)
         {
             posX = -12;
