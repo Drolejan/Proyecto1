@@ -11,17 +11,43 @@ public class playerControl : MonoBehaviour
     int saltos;
     public TextMeshProUGUI textoScore;
     public Transform respawnPoint;//Coordenadas de mi punto de respawn
+    float scaleNormal,scaleInvertido;
     void Start()
     {
         //Obtenemos el componente rigidbody de nuestro objeto
         cuerpoPlayer = GetComponent<Rigidbody2D>();
         saltos = 2;
+        //Estas linea solo es para los que alteraron el scale
+        scaleNormal = transform.localScale.x;
+        scaleInvertido = transform.localScale.x * -1f;
     }
 
     void Update()
     {
+        //Esto es lo del movimiento
         float posX = Input.GetAxis("Horizontal")*speed;
         cuerpoPlayer.velocity=new Vector2(posX,cuerpoPlayer.velocity.y);
+        if(posX > 0)
+        {
+            //Esto es si no escalaron a su personaje manualmente
+            transform.localScale = new Vector3(1,1,1);
+            //Eso usenlo si movieron la escala (estiraron) del personaje
+            //transform.localScale = new Vector3(scaleNormal,transform.localScale.y,transform.localScale.z);
+        }
+        else if(posX < 0)
+        {
+            //Esto es si no escalaron a su personaje manualmente
+            transform.localScale = new Vector3(-1, 1, 1);
+            //Eso usenlo si movieron la escala (estiraron) del personaje
+            //transform.localScale = new Vector3(scaleInvertido,transform.localScale.y,transform.localScale.z);
+        }
+        else
+        {
+            //Aqui va la animacion de espera
+        }
+
+
+        //Esto es lo de Salto
         if (Input.GetButtonDown("Jump")&&saltos>0)
         {
             cuerpoPlayer.AddForce(new Vector2(0, fuerzaBrinco));
