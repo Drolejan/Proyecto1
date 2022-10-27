@@ -17,7 +17,7 @@ public class playerControl : MonoBehaviour
         //Obtenemos el componente rigidbody de nuestro objeto
         cuerpoPlayer = GetComponent<Rigidbody2D>();
         saltos = 2;
-        //Estas linea solo es para los que alteraron el scale
+        //Estas lineas solo es para los que alteraron el scale
         scaleNormal = transform.localScale.x;
         scaleInvertido = transform.localScale.x * -1f;
     }
