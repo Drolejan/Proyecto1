@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  fuerzaBrinco: 200
+  fuerzaBrinco: 500
   textoScore: {fileID: 0}
   respawnPoint: {fileID: 0}
   puntos: 0
