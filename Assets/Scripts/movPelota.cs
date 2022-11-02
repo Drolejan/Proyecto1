@@ -10,7 +10,7 @@ public class movPelota : MonoBehaviour
     {
         rbPelota = GetComponent<Rigidbody2D>();
         rbPelota.velocity = new Vector2(1, 0);
-    } //subscribe to tboxfinn  y a drolejan :)
+    } 
 
     // Update is called once per frame
     void Update()
