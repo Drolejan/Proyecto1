@@ -7,6 +7,8 @@ TagManager:
   - suelo
   - point
   - enemy
+  - PorteriaPlayer1
+  - PorteriaPlayer2
   layers:
   - Default
   - TransparentFX
