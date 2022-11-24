@@ -17,12 +17,24 @@ public class pongBall : MonoBehaviour
         rbPelota = GetComponent<Rigidbody2D>();
     }
 
+    public GameObject panelVictoriaP1,panelVictoriaP2;
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             //Iniciamos el Juego
             rbPelota.velocity = new Vector2(1, 1)*speed;
+        }
+
+        if (scoreP1 >= 5)//Si gana el player 1
+        {
+            Time.timeScale = 0;
+            panelVictoriaP1.SetActive(true);
+        }
+        if (scoreP2 >= 5)//Si gana el player 2
+        {
+            Time.timeScale = 0;
+            panelVictoriaP2.SetActive(true);
         }
     }
 
@@ -49,5 +61,16 @@ public class pongBall : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Aqui agregaremos despues un rebote mas avanzado
+    }
+
+    public void reiniciar()//Esta función se la vamos a poner al boton de RESTART
+    {
+        scoreP1 = 0;
+        scoreP2 = 0;
+        Time.timeScale = 1;
+        panelVictoriaP1.SetActive(false);
+        panelVictoriaP2.SetActive(false);
+        textoP1.text = scoreP1.ToString();
+        textoP2.text = scoreP2.ToString();
     }
 }
