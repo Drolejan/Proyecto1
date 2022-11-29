@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - PorteriaPlayer1
   - PorteriaPlayer2
+  - limite
   layers:
   - Default
   - TransparentFX

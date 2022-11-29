@@ -19,7 +19,6 @@ public class aimShoot : MonoBehaviour
         {
             Instantiate(bala, posMira.transform.position,Quaternion.identity);
             sfxBala.Play();//Reproducimos el audio
-            //Hacer temporizador
         }
     }
 }
