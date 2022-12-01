@@ -7,6 +7,9 @@ public class multiShoot : MonoBehaviour
     Rigidbody2D rb;
     Vector2 mousePos;
     float movX, movY;
+    public GameObject balaNueva;
+    public float bulletForce;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,6 +23,13 @@ public class multiShoot : MonoBehaviour
         rb.velocity = new Vector2(movX, movY);
 
         mousePos=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject labala = Instantiate(balaNueva,transform.position, Quaternion.identity);
+            Rigidbody2D balarb = labala.GetComponent<Rigidbody2D>();
+            balarb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
+        }
     }
 
     private void FixedUpdate()
