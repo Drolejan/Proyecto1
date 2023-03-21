@@ -8,7 +8,7 @@ public class playerControl : MonoBehaviour
     Rigidbody2D cuerpoPlayer;
     public float speed;
     public float fuerzaBrinco;
-    int saltos;
+    public int saltos;
     public TextMeshProUGUI textoScore;
     public Transform respawnPoint;//Coordenadas de mi punto de respawn
     float scaleNormal,scaleInvertido;
@@ -16,7 +16,7 @@ public class playerControl : MonoBehaviour
     void Start()
     {
         //Obtenemos el componente animator de nuestro player
-        animPlayer = GetComponent<Animator>();
+        //animPlayer = GetComponent<Animator>();
         //Obtenemos el componente rigidbody de nuestro objeto
         cuerpoPlayer = GetComponent<Rigidbody2D>();
         saltos = 2;
@@ -32,7 +32,7 @@ public class playerControl : MonoBehaviour
         cuerpoPlayer.velocity=new Vector2(posX,cuerpoPlayer.velocity.y);
         if(posX > 0)
         {
-            animPlayer.SetBool("run", true);
+            //animPlayer.SetBool("run", true);
             //Esto es si no escalaron a su personaje manualmente
             transform.localScale = new Vector3(1,1,1);
             //Eso usenlo si movieron la escala (estiraron) del personaje
@@ -40,7 +40,7 @@ public class playerControl : MonoBehaviour
         }
         else if(posX < 0)
         {
-            animPlayer.SetBool("run", true);
+            //animPlayer.SetBool("run", true);
             //Esto es si no escalaron a su personaje manualmente
             transform.localScale = new Vector3(-1, 1, 1);
             //Eso usenlo si movieron la escala (estiraron) del personaje
@@ -49,7 +49,7 @@ public class playerControl : MonoBehaviour
         else
         {
             //Aqui va la animacion de espera
-            animPlayer.SetBool("run", false);
+            //animPlayer.SetBool("run", false);
         }
 
 
@@ -57,8 +57,8 @@ public class playerControl : MonoBehaviour
         if (Input.GetButtonDown("Jump")&&saltos>0)
         {
             //Animacion de Brinco
-            animPlayer.SetTrigger("jump");
-            animPlayer.SetBool("ground", false);
+            //animPlayer.SetTrigger("jump");
+            //animPlayer.SetBool("ground", false);
             cuerpoPlayer.AddForce(new Vector2(0, fuerzaBrinco));
             saltos -= 1;
             //tambien se puede poner asi: saltos--
@@ -71,7 +71,7 @@ public class playerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("suelo"))
         {
             saltos = 2;//Recargo mis saltos al tocar el suelo
-            animPlayer.SetBool("ground",true);
+            //animPlayer.SetBool("ground",true);
         }
         //Al chocar con el enemigo, hago respawn al punto indicado
         if (collision.gameObject.CompareTag("enemy"))
